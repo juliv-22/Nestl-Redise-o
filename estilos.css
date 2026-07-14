@@ -1,0 +1,686 @@
+
+:root{
+  --nestle-black:#1a1a1a;      /* negro corporativo (logo/nav/footer) */
+  --nestle-charcoal:#2e2e2e;   /* secciones oscuras */
+  --nestle-blue:#007cba;        /* azul acento (CTAs, links) */
+  --nestle-oak:#64513d;        /* marrón cálido de marca */
+  --nestle-gray-bg:#f5f4f2;    /* fondo claro alterno */
+  --nestle-gray-line:#e2e0dc;
+  --nestle-text:#1f1f1f;
+  --nestle-text-light:#f5f4f2;
+  --nestle-text-muted:#8a8a86;
+  --font-display:'Nestle-Text-Book', sans-serif;
+  --font-body:'Nestle-Text-Book', sans-serif;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  font-family:var(--font-body);
+  color:var(--nestle-text);
+  background:#ffffff;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+h1,h2,h3,h4{
+  font-family:var(--font-display);
+  font-weight:700;
+}
+
+h2 {
+    font-size: clamp(32px, 3.8vw, 40px);
+}
+
+h3 {
+    font-size: clamp(28px, 2.8vw, 30px);
+}
+
+h4 {
+    font-size: clamp(16px, 2vw,  25px);
+}
+
+ p { font-size: clamp(16px, 2vw, 20px);
+  color: #42382c; 
+}
+
+a { font-size: clamp(16px, 2vw, 20px);
+  font-weight: 700; 
+  text-decoration:none;
+}
+
+ol, ul {
+  margin-bottom: 0;
+}
+
+/* ---------- Header ---------- */
+.site-header{
+  background:#f6f5f4;
+  border-bottom:1px solid var(--nestle-gray-line);
+}
+.navbar {padding:.9rem 0;
+position: relative;
+}
+
+
+.site-logo{
+  margin: 0;
+  line-height: 0;
+}
+
+.site-logo-link{
+  display: block;
+  width: 180px;
+  height: 55px;
+  background-image: url('/img/logo.svg');
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
+  overflow: hidden;
+  white-space: nowrap;
+  text-indent: 200%;
+}
+
+.footer-logo-link{
+  display: block;
+  width: 80px;
+  height: 70px;
+  background-image: url('/img/logo-footer.png');
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
+  overflow: hidden;
+  text-indent: 200%;
+}
+
+
+.main-nav .nav-link, .main-nav .dropdown-item {
+  color:var(--nestle-text);
+  font-weight:700;
+  position: static;
+  font-size: clamp(16px, 1.2vw, 18px);
+}
+.main-nav .nav-link:hover,
+.main-nav .nav-link:focus{color:var(--nestle-blue);}
+
+.mega-menu{
+  border:none;
+  border-radius:18px;
+  box-shadow:0 12px 24px rgba(0,0,0,.12);
+  padding:1.5rem;
+  width: 100%;
+  background:#f6f5f4;
+}
+.mega-menu .dropdown-item{
+  padding:.4rem 0;
+  font-weight:600;
+  color:var(--nestle-text);
+}
+.mega-menu .dropdown-item:hover{
+  background:transparent;
+  color:var(--nestle-blue);
+}
+
+.header-icons{display:flex;gap:.5rem;align-items:center;}
+.icon-btn{
+  width:38px;height:38px;
+  border-radius:50%;
+  border:1px solid var(--nestle-gray-line);
+  background:#fff;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--nestle-text);
+}
+.icon-btn:hover{background:var(--nestle-blue);color:#fff;}
+
+.btn-nestle-outline{
+  background-color: var(--nestle-blue);
+  color: #ffffff;
+  font-weight:700;
+  border-radius:30px;
+  padding:.4rem 1.3rem;
+}
+.btn-nestle-outline:hover{border-color: 3px solid var(--nestle-blue);color:var(--nestle-blue);}
+
+.btn-nestle-outline-blue{
+  border:2px solid var(--nestle-blue);
+  color:var(--nestle-blue);
+  font-weight:700;
+  border-radius:30px;
+  padding:.6rem 2rem;
+}
+.btn-nestle-outline-blue:hover{background:var(--nestle-blue);color:#fff;}
+
+.icon-btn-country{
+  width:auto;
+  padding:0 .8rem;
+  gap:.35rem;
+  border-radius:20px;
+}
+.icon-btn-country .country-code{
+  font-weight:800;
+  font-size:.78rem;
+  letter-spacing:.02em;
+}
+.icon-btn-country:hover .country-code{color:#fff;}
+
+/* ---------- Modal: cambiar país ---------- */
+.country-modal-content{
+  border-radius:10px;
+  border:none;
+}
+.country-modal-content .modal-header{
+  border-bottom:1px solid var(--nestle-gray-line);
+}
+.country-modal-content .modal-title{
+  font-family:var(--font-display);
+  font-weight:800;
+}
+.country-search-input{
+  border-radius:30px;
+  border:1px solid var(--nestle-gray-line);
+  padding:.6rem 1.2rem;
+  margin-bottom:1.2rem;
+}
+.country-search-input:focus{
+  border-color:var(--nestle-blue);
+  box-shadow:0 0 0 .2rem rgba(200,16,46,.15);
+}
+.country-results{
+  max-height:320px;
+  overflow-y:auto;
+  margin:0;
+}
+.country-result-item{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  padding:.65rem .5rem;
+  border-radius:6px;
+  color:var(--nestle-text);
+  font-weight:600;
+}
+.country-result-item:hover{background:var(--nestle-gray-bg);}
+.country-result-item.active{
+  background:var(--nestle-gray-bg);
+  color:var(--nestle-blue);
+}
+.country-result-item .flag{font-size:1.2rem;}
+.country-result-item .code{
+  margin-left:auto;
+  font-size:.75rem;
+  color:var(--nestle-text-muted);
+  font-weight:700;
+}
+
+
+
+/* ---------- Hero ---------- */
+.hero-section{position:relative;background:var(--nestle-black);}
+.hero-img img{
+  width: 100%;
+  height: 100%;
+  object-fit:contain;
+}
+
+
+.carousel-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.15) 0%,
+    rgba(0,0,0,0.85) 100%);
+  z-index: 1;
+}
+
+.carousel-caption-custom{
+  position:absolute;
+  left:0;right:0;bottom:14%;
+  max-width: 1000px;
+  margin:0 auto;
+  text-align:center;
+  color:#fff;
+  padding:0 1.5rem;
+  z-index: 1;
+}
+.carousel-caption-custom .eyebrow{
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-weight:700;
+  font-size:.8rem;
+  color: #ffff;
+  margin-bottom:.6rem;
+}
+
+.carousel-caption-custom h1{
+  font-size:clamp(1.5rem,3.4vw,2.6rem);
+  margin-bottom:1.4rem;
+  line-height:1.2;
+}
+
+.btn-nestle-primary{
+  background:var(--nestle-blue);
+  color:#fff;
+  font-weight:700;
+  border-radius:30px;
+  padding:.65rem 1.9rem;
+  border:2px solid var(--nestle-blue);
+  display:inline-block;
+  margin-bottom: 1rem;
+}
+.btn-nestle-primary:hover{background:transparent;border-color:#007cba;color:#007cba;}
+
+
+.btn-nestle-secundario, .btn-nestle-tercero {
+  color:#fff;
+  font-weight:700;
+  border-radius:30px;
+  padding:.65rem 1.9rem;
+  display:inline-block;
+  background:transparent;
+  border-color:#ffffff;
+}
+.btn-nestle-secundario:hover{background:#ffffff;color:#a50064;}
+
+.btn-nestle-tercero:hover{background:#ffffff;color:#007cba;}
+
+.carousel-indicators-custom{
+  position:absolute;
+  bottom:24px;left:0;right:0;
+  display:flex;justify-content:center;gap:8px;
+  z-index:5;
+}
+.carousel-indicators-custom button{
+  width:9px;height:9px;border-radius:50%;
+  background:rgba(255,255,255,.5);
+  border:none;padding:0;
+}
+.carousel-indicators-custom button.active{background:#fff;}
+
+.carousel-control-prev,.carousel-control-next{width:6%;}
+
+.hero-section p{color: #fff;}
+
+
+
+
+
+/* ---------- Quick links (3 cards) ---------- */
+.quick-links{background:#fff;}
+.quick-card{
+  border:1px solid var(--nestle-gray-line);
+  border-radius: 20px;
+  overflow:hidden;
+  height:100%;
+  transition:box-shadow .5s ease, transform .2s ease;
+}
+.quick-card:hover{box-shadow:0 14px 30px rgba(0,0,0,.08);transform:translateY(-3px);}
+.quick-card-img{
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  background:var(--nestle-gray-bg);
+}
+.quick-card-body{padding:2.2rem;}
+
+.quick-card-tag{
+  display:block;
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: var(--nestle-oak);
+  text-transform: uppercase;
+}
+
+
+.quick-card-title{
+  font-size: clamp(16px, 2vw,  25px);
+}
+
+.quick-card-body p{
+  color:var(--nestle-text-muted);
+  font-size:.92rem;
+  margin-bottom:1rem;
+}
+.link-nestle{
+  color:var(--nestle-blue);
+}
+.link-nestle:hover{color:#007cba;}
+
+/* ---------- Noticias (dark) ---------- */
+.news-section{background:#a50064;color:#fff;}
+
+
+.section-title-dark{
+  color:#fff;
+}
+.news-date{
+  display:inline-block;
+  color:#ffff;
+  font-size:.78rem;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  margin-bottom:.6rem;
+}
+
+.news-block{
+  border-radius:4px;
+  margin-bottom: 5px;
+}
+.news-section p a{
+  color:#f0f0ef;
+  font-weight:600;
+  font-size:.92rem;
+  line-height:1.4;
+}
+.news-section p a:hover{color:#afafaf;}
+
+
+.news-card{
+  padding: 1.75rem;
+  border-radius: 4px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-title{
+  flex: 1; 
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.news-link{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: .6rem;
+  text-decoration: none;
+  color: #fff;
+}
+
+.news-arrow{
+  width: 10px;
+  height: 20px;
+  transition: transform .25s ease;
+}
+
+.news-link:hover .news-arrow{
+  transform: translateX(4px); /* micro-interacción sutil al hover */
+}
+
+.news-line{
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+}
+
+.news-section .col-12.col-md-3{
+  display: flex;
+}
+
+.news-card{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* empuja .news-link al fondo */
+}
+
+.news-content{
+  margin-bottom: 10px;
+}
+
+
+
+/* ---------- Marcas ---------- */
+.brands-section{background:#fff;}
+.section-title{
+  font-size:2rem;
+  color:var(--nestle-black);
+}
+
+.brand-logo{
+  display: block;
+  width:60%;
+  height: 70px;
+  object-fit: contain;  
+  object-position: center;
+  margin: 0 auto;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+
+/* ---------- CTA (dark, 3 col) ---------- */
+.cta{background:#007cba;color:var(--nestle-text-light); background-image: url(img/mapa.webp);
+background-repeat: no-repeat;
+background-position: center;
+}
+
+
+.cta h3{
+  color:#fff;
+  margin-bottom:.4rem;
+}
+.cta p{margin-bottom:1rem; color: #fff;}
+.btn-nestle-primary.btn-sm{padding:.45rem 1.4rem;font-size:.85rem;}
+
+/* ---------- Footer principal ---------- */
+.main-footer{background:var(--nestle-gray-bg);color:var(--nestle-text);}
+.main-footer h4{
+  font-size:.95rem;
+  text-transform:uppercase;
+  letter-spacing:.03em;
+  color:var(--nestle-black);
+  margin-bottom:.8rem;
+}
+.main-footer ul, li{list-style:none;padding:0;margin:0; 
+align-items: center;}
+.main-footer ul li{margin-bottom:.5rem;}
+.main-footer ul li a{
+  color:#5c5c58;
+  font-size:.9rem;
+}
+.main-footer ul li a:hover{color:var(--nestle-blue);}
+.footer-logo{filter:none;}
+
+.social-icons{
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+}
+
+.social-icons img.icon{
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #007cba;
+  padding: 5px;
+  transition: background .2s ease;
+}
+
+
+.social-icons img:hover{background:var(--nestle-blue); color:#e0e0e0;}
+
+.sub-footer{
+  background:var(--nestle-black);
+  color:#a9a9a6;
+  font-size:.8rem;
+}
+.sub-footer a{color:#a9a9a6;}
+.sub-footer a:hover{color:#fff;}
+
+
+
+
+/* ---------- Brand page hero ---------- */
+.hero-section--single::before,
+.hero-section--single figure::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.15) 0%,
+    rgba(0,0,0,0.85) 100%);
+  z-index: 1;
+}
+
+.marcas-p{
+  font-size: clamp(16px, 2vw, 20px);
+}
+
+/* ---------- Filtro ---------- */
+.brand-filter{
+  margin-bottom: 2rem;
+}
+.brand-filter-select{
+  width: 100%;
+  max-width: 280px;
+  padding: .7rem 2.8rem .7rem 1.2rem;
+  border: 1px solid var(--nestle-gray-line);
+  border-radius: 30px;
+  background-color: #fff;
+  font-weight: 700;
+  color: var(--nestle-text);
+  font-size: .95rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url(img/flecha-abajo.svg);
+  background-repeat: no-repeat;
+  background-position: right 1.2rem center;
+  background-size: 14px 9px;
+}
+
+.brand-filter-select:focus{
+  outline: none;
+  border-color: var(--nestle-blue);
+  box-shadow: 0 0 0 .2rem rgba(0,124,186,.15);
+  background-image: url(img/flecha-abajo-azul.svg);
+}
+
+
+
+
+/* ---------- Bloques texto/imagen ---------- */
+.brand-block{
+  margin-bottom: 3rem;
+}
+.brand-block-img{
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+.brand-block-tag{
+  display: block;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--nestle-oak);
+  text-transform: uppercase;
+  margin-bottom: .5rem;
+}
+.brand-block h2{
+  margin-bottom: 1rem;
+}
+.brand-block p{
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.logos-agua {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.logo{
+  min-width: 120px;
+  max-width: 150px;
+}
+
+.marcas-img figure img{
+  border-radius: 20px;
+}
+
+/* ---------- Información relacionada ---------- */
+
+.informacion {
+  background-color: #f5f4f2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------- Responsive ---------- */
+
+
+@media (max-width:767.98px){
+  .carousel-caption-custom{bottom:10%;}
+  .section-title-dark, .section-title{font-size:1.5rem;}
+  .brand-block-img{ height: 240px; margin-bottom: 1.5rem; }
+  .brand-hero{ height: 220px; }
+}
+
+
+
+
+@media screen and (min-width: 1200px){
+ .mega-menu{
+  width: 580px;
+}
+
+.navbar-expand-xl .navbar-collapse {
+        display: flex !important;
+        flex-basis: none;
+    }
+
+
+  .main-nav .nav-item.dropdown > .dropdown-menu {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform .18s ease, visibility .18s;
+  }
+
+  .main-nav .nav-item.dropdown::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    height: .5rem;
+  }
+  .main-nav .nav-item.dropdown:hover > .dropdown-menu,
+  .main-nav .nav-item.dropdown:focus-within > .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+
+
+}
